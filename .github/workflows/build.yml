@@ -16,7 +16,7 @@ env:
 
 jobs:
   build_and_push:
-    working-director: docker
+    working-directory: docker
     runs-on: ubuntu-latest
     permissions:
       contents: read
