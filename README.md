@@ -161,11 +161,8 @@ docker run -p 3000:3000 ping-pong-api:latest
 # Install/upgrade in production
 helm upgrade --install ping-pong-api ./helm/ping-pong-api \
   --values ./helm/ping-pong-api/values-prod.yaml \
-  --namespace production --create-namespace
+  --namespace default --create-namespace
 
-# Install in development
-helm upgrade --install ping-pong-api ./helm/ping-pong-api \
-  --namespace development --create-namespace
 ```
 
 ## 🔄 CI/CD Pipeline
@@ -174,7 +171,7 @@ helm upgrade --install ping-pong-api ./helm/ping-pong-api \
 
 1. **Build and Deploy** (`.github/workflows/build-and-deploy.yml`)
    - Triggers on push to main branch
-   - Builds Docker image with security scanning
+   - Builds Docker image
    - Pushes to Google Artifact Registry
    - Deploys to GKE using Helm
 
