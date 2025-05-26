@@ -17,6 +17,9 @@ env:
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docker
     permissions:
       contents: read
       
@@ -39,7 +42,6 @@ jobs:
 
       - name: Build and push Docker image to Artifact Registry
         uses: docker/build-push-action@v5
-        working-directory: ./docker
         with:
           file: Dockerfile
           platforms: linux/amd64
