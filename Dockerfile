@@ -24,10 +24,12 @@ WORKDIR /app
 # Copy production dependencies from builder stage
 COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
 
-# Copy application source code
-COPY --chown=nodejs:nodejs . .
+# COpy specific files/directories
+COPY --chown=nodejs:nodejs controller.js ./
+COPY --chown=nodejs:nodejs routes.js ./
+COPY --chown=nodejs:nodejs server.js ./
 
-RUN rm -f package*.json
+COPY --chown=nodejs:nodejs package.json ./
 
 # Switch to non-root user
 USER nodejs
@@ -35,9 +37,5 @@ USER nodejs
 # Expose port
 EXPOSE 3000
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD node -e "require('http').get('http://localhost:3000/ping', (res) => { process.exit(res.statusCode === 200 ? 0 : 1); }).on('error', () => process.exit(1));"
-    
 # Start the application
 CMD ["node", "server.js"]

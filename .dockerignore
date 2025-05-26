@@ -1,0 +1,10 @@
+.git
+.gitignore
+.github
+node_modules
+helm/
+terraform/
+Dockerfile
+*.log
+npm-debug.log
+README.md

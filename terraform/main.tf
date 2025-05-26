@@ -1,5 +1,3 @@
-
-
 # Data source to get current GCP project
 data "google_project" "current" {}
 

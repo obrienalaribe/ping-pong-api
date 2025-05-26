@@ -116,3 +116,17 @@ variable "authorized_networks" {
     }
   ]
 }
+
+# Cloudflare configuration
+variable "cloudflare_api_token" {
+  description = "Cloudflare API token with zone:edit permissions"
+  type        = string
+  sensitive   = true
+  default     = ""
+}
+
+variable "cloudflare_zone_id" {
+  description = "Cloudflare zone ID for your domain"
+  type        = string
+  default     = ""
+}
