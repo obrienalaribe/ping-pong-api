@@ -134,9 +134,8 @@ resource "google_container_cluster" "primary" {
     workload_pool = "${var.project_id}.svc.id.goog"
   }
 
-  # Enable network policy
   network_policy {
-    enabled = true
+    enabled = false
   }
 
   # Addons configuration
