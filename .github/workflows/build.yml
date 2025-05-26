@@ -40,5 +40,5 @@ jobs:
 
       - name: Build/Push Docker image to Artifact Registry
         run: |
-          docker build -t europe-north2-docker.pkg.dev/ob-sax/ping-pong-cluster-docker/ping-pong-api:${{ env.GITHUB_REF }} .
+          docker build -t europe-north2-docker.pkg.dev/ob-sax/ping-pong-cluster-docker/ping-pong-api:${GITHUB_SHA::7} .
           docker push
