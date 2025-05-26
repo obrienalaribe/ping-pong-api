@@ -44,4 +44,8 @@ jobs:
           docker push europe-north2-docker.pkg.dev/ob-sax/ping-pong-cluster-docker/ping-pong-api:${GITHUB_SHA::7}
 
       - name: Run helm chart
-        run: helm install upgrade ping-pong-api-release ping-pong-ap --set image.tag=latest
+        run:  |
+          helm upgrade --install ping-pong-api-release ping-pong-api \
+          --set image.tag=${GITHUB_SHA::7} \
+          --wait
+
