@@ -82,7 +82,11 @@ terraform apply
 
 5. **Deploy Application**
 ```bash
-helm install ping-pong-api helm/ping-pong-api -n default
+connect to cluster using the kubectl_config_command from your terraform output (gcloud container clusters get-credentials ping-pong-cluster ...))
+
+cd ..
+chmod u+x install.sh 
+./install.sh # installs app and nginx ingress controller
 ```
 
 
@@ -91,6 +95,8 @@ helm install ping-pong-api helm/ping-pong-api -n default
 ### Building the Docker Image
 
 The application is built with CI/CD using a multi-stage Dockerfile. check `.github/workflows` for more details.
+
+You can use a workflow_dispatch to build and deploy the image with a custom tag you provide.
 
 ## Infrastructure Details
 
