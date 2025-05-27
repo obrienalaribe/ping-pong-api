@@ -6,6 +6,14 @@ on:
   pull_request:
     branches: [ main ]
 
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Give image a tag'
+        required: true
+        type: string
+
 env:
   PROJECT_ID: ob-sax
   GCP_REGION: europe-north2
