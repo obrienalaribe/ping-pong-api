@@ -109,7 +109,7 @@ Once build succeeds, you can access the deployed app at `http://<load-balancer-i
 
 ### Nginx Ingress
 
-- **Type**: Internal Load Balancer
+- **Type**: External Load Balancer
 - **Health Checks**: Configured for `/ping` endpoint
 
 
