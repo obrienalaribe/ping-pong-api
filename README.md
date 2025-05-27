@@ -86,17 +86,19 @@ connect to cluster using the kubectl_config_command from your terraform output (
 
 cd ..
 chmod u+x install.sh 
-./install.sh # installs app and nginx ingress controller
+./install.sh # nginx ingress controller
 ```
 
 
-## Development
+## Developing the app
 
 ### Building the Docker Image
 
 The application is built with CI/CD using a multi-stage Dockerfile. check `.github/workflows` for more details.
 
-You can use a workflow_dispatch to build and deploy the image with a custom tag you provide.
+You can use a workflow_dispatch to build and deploy the image with a custom tag you provide (i.e v1, v2, etc). This will automatically deploy the ping-pong app to your cluster.
+
+Once build succeeds, you can access the deployed app at `http://<load-balancer-ip>/ping`.
 
 ## Infrastructure Details
 

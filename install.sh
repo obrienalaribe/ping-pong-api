@@ -40,4 +40,4 @@ while [ -z "$PING_ENDPOINT" ]; do
   fi
 done
 
-echo "✅ LoadBalancer IP: $PING_ENDPOINT"
+echo "✅ LoadBalancer IP: http://$PING_ENDPOINT"
