@@ -82,13 +82,13 @@ terraform apply
 
 5. **Deploy Application**
 ```bash
-connect to cluster using the kubectl_config_command from your terraform output (gcloud container clusters get-credentials ping-pong-cluster ...))
+use the kubectl_config_command output to auth to cluster 
+gcloud container clusters get-credentials ping-pong-cluster ...
 
 cd ..
 chmod u+x install.sh 
 ./install.sh # nginx ingress controller
 ```
-
 
 ## Developing the app
 
